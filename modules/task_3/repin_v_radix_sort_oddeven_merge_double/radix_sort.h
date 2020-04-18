@@ -1,6 +1,6 @@
 // Copyright 2020 Repin Vladimir
-#ifndef MODULES_TASK_2_REPIN_V_RADIX_SORT_ODDEVEN_MERGE_DOUBLE_RADIX_SORT_H_
-#define MODULES_TASK_2_REPIN_V_RADIX_SORT_ODDEVEN_MERGE_DOUBLE_RADIX_SORT_H_
+#ifndef MODULES_TASK_3_REPIN_V_RADIX_SORT_ODDEVEN_MERGE_DOUBLE_RADIX_SORT_H_
+#define MODULES_TASK_3_REPIN_V_RADIX_SORT_ODDEVEN_MERGE_DOUBLE_RADIX_SORT_H_
 
 #include <tbb/tbb.h>
 #include <random>
@@ -23,7 +23,7 @@ class tbb_radix {
 
  public:
     tbb_radix(double *inp_, double *temp_,
-        std::vector<std::pair<int, int>>& parts_) {
+        const std::vector<std::pair<int, int>>& parts_) {
         inp = inp_;
         temp = temp_;
         parts = parts_;
@@ -42,7 +42,7 @@ class tbb_merge {
 
  public:
     tbb_merge(double *inp_, double *temp_,
-        std::vector<std::pair<int, std::pair<int, int>>>& cur_ord) {
+        const std::vector<std::pair<int, std::pair<int, int>>>& cur_ord) {
         inp = inp_;
         temp = temp_;
         current_order = cur_ord;
@@ -64,7 +64,7 @@ class tbb_shuffle {
 
  public:
     tbb_shuffle(double *inp_, double *temp_,
-        std::vector<std::pair<int, std::pair<int, int>>>& cur_ord) {
+        const std::vector<std::pair<int, std::pair<int, int>>>& cur_ord) {
         inp = inp_;
         temp = temp_;
         current_order = cur_ord;
@@ -84,4 +84,4 @@ class tbb_shuffle {
     }
 };
 
-#endif  // MODULES_TASK_2_REPIN_V_RADIX_SORT_ODDEVEN_MERGE_DOUBLE_RADIX_SORT_H_
+#endif  // MODULES_TASK_3_REPIN_V_RADIX_SORT_ODDEVEN_MERGE_DOUBLE_RADIX_SORT_H_
