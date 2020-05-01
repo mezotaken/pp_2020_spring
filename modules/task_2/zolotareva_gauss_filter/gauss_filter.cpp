@@ -68,7 +68,7 @@ Image Image::GaussFilterOMP(int numthreads) {
     for (int i = 0; i < numthreads + 1; i++)
         pos[i] = i*(cols / numthreads);
     pos[0]++;
-    pos[numthreads]-=1;
+    pos[numthreads]--;
     #pragma omp parallel num_threads(numthreads)
     {
         int id = omp_get_thread_num();
