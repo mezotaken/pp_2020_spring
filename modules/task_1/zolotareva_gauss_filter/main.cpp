@@ -45,14 +45,14 @@ int main(int argc, char **argv) {
     return RUN_ALL_TESTS();
 #else
     cv::Mat src = cv::imread("C:\\test.jpg", 2);
-    cv::imshow("Исходное изображение", src);
+    cv::imshow("Source image", src);
 
     Image test = Image(src.rows, src.cols, src.data);
     Image res = test.GaussFilter();
-    cv::Mat dst = cv::Mat(res.rows, res.cols, CV_8UC1,res.data);
+    cv::Mat dst = cv::Mat(res.rows, res.cols, CV_8UC1, res.data);
 
-    cv::imshow("Обработанное изображение", dst);
+    cv::imshow("Result image", dst);
     cv::waitKey(0);
     return 0;
-#endif 
+#endif
 }
