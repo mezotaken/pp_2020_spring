@@ -3,17 +3,17 @@
 #ifndef OPENCV
 #include "gtest/gtest.h"
 
-TEST(sequential_gauss_filter, can_create_random_image) {
+TEST(omp_gauss_filter, can_create_random_image) {
     ASSERT_NO_THROW(Image test = Image(10, 10, true));
 }
 
-TEST(sequential_gauss_filter, image_copying_is_correct) {
+TEST(omp_gauss_filter, image_copying_is_correct) {
     Image test = Image(10, 10, true);
     Image test2(test);
     EXPECT_EQ((test == test2), true);
 }
 
-TEST(sequential_gauss_filter, filtering_is_correct) {
+TEST(omp_gauss_filter, filtering_is_correct) {
     unsigned char src[9] = { 16, 16, 16, 16, 32, 16, 16, 16, 16 };
     unsigned char dst[9] = { 0, 0, 0, 0, 20, 0, 0, 0, 0 };
     Image in = Image(3, 3, src);
@@ -21,17 +21,17 @@ TEST(sequential_gauss_filter, filtering_is_correct) {
     EXPECT_EQ((in.GaussFilterOMP(1) == out), true);
 }
 
-TEST(sequential_gauss_filter, same_result_with_multithreading) {
+TEST(omp_gauss_filter, same_result_with_multithreading) {
     Image test = Image(16, 16, true);
     EXPECT_EQ((test.GaussFilterOMP(1) == test.GaussFilterOMP(4)), true);
 }
 
-TEST(sequential_gauss_filter, image_changes_after_filtering) {
+TEST(omp_gauss_filter, image_changes_after_filtering) {
     Image test = Image(16, 16, true);
     EXPECT_NE(test, test.GaussFilterOMP(4));
 }
 
-TEST(sequential_gauss_filter, can_filter_large_image_parallel) {
+TEST(omp_gauss_filter, can_filter_large_image_parallel) {
     Image test = Image(40, 40, true);
     ASSERT_NO_THROW(test.GaussFilterOMP(4));
 }
