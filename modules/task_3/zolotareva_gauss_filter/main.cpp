@@ -46,15 +46,15 @@ int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 #else
-     //OpenCV demo
+     // OpenCV demo
 
-     //cv::Mat src = cv::imread("C:\\test.jpg", 2);
-     //cv::imshow("Source image", src);
-     //Image test = Image(src.rows, src.cols, src.data);
-     //Image res = test.GaussFilterTBB(4);
-     //cv::Mat dst = cv::Mat(res.rows, res.cols, CV_8UC1, res.data);
-     //cv::imshow("Result image", dst);
-     //cv::waitKey(0);
+    // cv::Mat src = cv::imread("C:\\test.jpg", 2);
+    // cv::imshow("Source image", src);
+    // Image test = Image(src.rows, src.cols, src.data);
+    // Image res = test.GaussFilterTBB(4);
+    // cv::Mat dst = cv::Mat(res.rows, res.cols, CV_8UC1, res.data);
+    // cv::imshow("Result image", dst);
+    // cv::waitKey(0);
 
     // Speedup Demo
     int size = 5000;

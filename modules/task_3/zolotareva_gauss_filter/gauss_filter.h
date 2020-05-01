@@ -10,11 +10,11 @@
 #include <cstring>
 
 class Image {
-public:
+ public:
     unsigned char *data;
     int rows;
     int cols;
-    Image(){}
+    Image() {}
     Image(int r, int c, bool random);
     Image(int r, int c, unsigned char *d);
     Image(const Image& img);
@@ -22,16 +22,16 @@ public:
     bool operator== (const Image& img) const;
     bool operator!= (const Image& img) const { return !(*this == img); }
     Image GaussFilterTBB(int numthreads);
-    ~Image();   
+    ~Image();
 };
 
 class tbb_gauss {
-private:
+ private:
     unsigned char *source;
     unsigned char *result;
     int rows;
     int cols;
-public:
+ public:
     tbb_gauss(unsigned char *src, unsigned char *res, int r, int c);
     void operator() (const tbb::blocked_range<int> &range) const;
 };
